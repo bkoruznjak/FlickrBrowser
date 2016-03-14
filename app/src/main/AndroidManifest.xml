@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="hr.from.bkoruznjak.flickrbrowser">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Flickr">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="Search Activity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hr.from.bkoruznjak.flickrbrowser.MainActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".ViewPhotoDetailsActivity"
+            android:label="@string/title_activity_view_photo_details"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.Flickr">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hr.from.bkoruznjak.flickrbrowser.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>
